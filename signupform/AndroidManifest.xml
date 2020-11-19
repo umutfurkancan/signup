@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="227"
+    android:versionName="4.9"
+    package="com.myproject">
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="25" />
+
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission
+        android:name="android.permission.MANAGE_USERS" />
+
+    <uses-permission
+        android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission
+        android:name="com.android.vending.BILLING" />
+
+    <permission
+        android:name="com.myproject.permission.C2D_MESSAGE"
+        android:protectionLevel="0x2" />
+
+    <uses-permission
+        android:name="com.myproject.permission.C2D_MESSAGE" />
+
+    <application
+        android:theme="@ref/0x7f10013f"
+        android:label="@ref/0x7f0f004f"
+        android:icon="@ref/0x7f08005a"
+        android:name="br.com.regmoraes.myproject.CustomApp"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:supportsRtl="true">
+
+        <meta-data
+            android:name="search-engine"
+            android:resource="@ref/0x7f120001" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@ref/0x7f0a0006" />
+
+        <meta-data
+            android:name="com.mixpanel.android.MPConfig.ResourcePackageName"
+            android:value="br.com.regmoraes.myproject" />
+
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="br.com.regmoraes.myproject.domain.entity.App,
+            br.com.regmoraes.myproject.conteudo.commons.entity.Content,
+            br.com.regmoraes.myproject.conteudo.commons.entity.Category,
+            br.com.regmoraes.myproject.domain.entity.User,
+            br.com.regmoraes.myproject.domain.entity.Parameter"/>
+
+        <meta-data
+            android:name="com.mixpanel.android.MPConfig.AutoShowMixpanelUpdates"
+            android:value="true" />
+
+        <meta-data
+            android:name="com.mixpanel.android.MPConfig.EnableDebugLogging"
+            android:value="true" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="123456" />
+
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="123456" />
+
+        <service
+            android:name="br.com.regmoraes.myproject.push.firebase.MessagingService">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="br.com.regmoraes.myproject.push.firebase.InstanceIdService">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="br.com.regmoraes.myproject.conteudo.sync.service.SyncService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.mixpanel.android.mpmetrics.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <action
+                    android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category
+                    android:name="com.myproject" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.mixpanel.android.mpmetrics.InstallReferrerReceiver"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="io.branch.referral.InstallListener"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:theme="@ref/0x7f1000a7"
+            android:label="@ref/0x7f0f004f"
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="0x5b0" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@ref/0x7f0f0000" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"
+            android:authorities="com.facebook.app.FacebookContentProvider976563775688475" />
+
+        <activity
+            android:theme="@ref/0x7f100199"
+            android:label="@ref/0x7f0f014d"
+            android:name="com.zendesk.sdk.support.SupportActivity"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f100199"
+            android:label="@ref/0x7f0f00be"
+            android:name="com.zendesk.sdk.feedback.ui.ContactZendeskActivity"
+            android:windowSoftInputMode="0x14" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f004f"
+            android:name="br.com.regmoraes.myproject.sessao.login.basic.presentation.LoginActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f0f004f"
+            android:name="br.com.regmoraes.myproject.ui.activity.BaseActivity"
+            android:exported="true"
+            android:launchMode="2">
+
+            <intent-filter
+                android:label="@ref/0x7f0f004f">
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="host"
+                    android:pathPrefix="/123" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0f0162"
+            android:name="br.com.regmoraes.myproject.home.presentation.HomeActivity"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f004f"
+            android:name="br.com.regmoraes.myproject.conteudo.atualizacao.presentation.AtualizacaoConteudoActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f0f00fe"
+            android:name="br.com.regmoraes.myproject.configuracoes.presentation.ConfiguracoesActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f004f"
+            android:name="br.com.regmoraes.myproject.sessao.manterconectado.presentation.ManterConectadoActivity" />
+
+        <activity
+            android:theme="@ref/0x7f1000d3"
+            android:label="@ref/0x7f0f004f"
+            android:name="br.com.regmoraes.myproject.splash.ui.SplashActivity"
+            android:screenOrientation="1">
+
+            <intent-filter
+                android:label="My Project">
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="com.myproject"
+                    android:host="open" />
+            </intent-filter>
+
+            <intent-filter
+                android:label="My Project">
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="www.regmoraes.com.br"
+                    android:pathPrefix="/android" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f0161"
+            android:name="br.com.regmoraes.myproject.ui.activity.EsqueciSenhaActivity"
+            android:parentActivityName="br.com.regmoraes.myproject.sessao.login.basic.presentation.LoginActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".sessao.login.basic.presentation.LoginActivity" />
+        </activity>
+
+        <activity
+            android:theme="@ref/0x0103000f"
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f016a"
+            android:name="br.com.regmoraes.myproject.ui.activity.WelcomeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="br.com.regmoraes.myproject.home.presentation.NavigationDrawerActivity" />
+
+        <activity
+            android:label="@ref/0x7f0f016a"
+            android:name="br.com.regmoraes.myproject.conteudo.commons.TabbedContentActivity"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:name="br.com.regmoraes.myproject.cadastro.ui.CadastroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10"
+            android:parentActivityName="br.com.regmoraes.myproject.sessao.login.basic.presentation.LoginActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".sessao.login.basic.presentation.LoginActivity" />
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:name="br.com.regmoraes.myproject.cadastro.ui.EditarCadastroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10"
+            android:parentActivityName="br.com.regmoraes.myproject.sessao.login.basic.presentation.LoginActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".sessao.login.basic.presentation.LoginActivity" />
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0f0164"
+            android:name="br.com.regmoraes.myproject.conteudo.commons.ContentListActivity"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:label="@ref/0x7f0f0160"
+            android:name="br.com.regmoraes.myproject.conteudo.commons.DetailContentActivity"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f0168"
+            android:name="br.com.regmoraes.myproject.conteudo.busca.presentation.SearchActivity"
+            android:windowSoftInputMode="0x24"
+            android:parentActivityName="br.com.regmoraes.myproject.home.presentation.HomeActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@ref/0x7f120002" />
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0f0165"
+            android:name="br.com.regmoraes.myproject.conteudo.notas.presentation.NotasActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f0169"
+            android:name="br.com.regmoraes.myproject.ui.activity.UpdateWarningActivity"
+            android:launchMode="1"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:label="@ref/0x7f0f0166"
+            android:name="br.com.regmoraes.myproject.ui.activity.PrintDialogActivity"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:name="br.com.regmoraes.myproject.sessao.login.facebook.presentation.LoginFacebookActivity" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:name="br.com.regmoraes.myproject.assinatura.presentation.AssinaturaActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f10012f"
+            android:name="br.com.regmoraes.myproject.assinatura.presentation.DetalhesAssinaturaActivity"
+            android:windowSoftInputMode="0x22"
+            android:parentActivityName="br.com.regmoraes.myproject.assinatura.presentation.AssinaturaActivity" />
+
+        <receiver
+            android:name="com.zendesk.sdk.power.BatteryStateBroadcastReceiver">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.BATTERY_LOW" />
+
+                <action
+                    android:name="android.intent.action.BATTERY_OKAY" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:label="@ref/0x7f0f00be"
+            android:name="com.zendesk.sdk.requests.ViewRequestActivity"
+            android:windowSoftInputMode="0x12" />
+
+        <activity
+            android:label="@ref/0x7f0f0131"
+            android:name="com.zendesk.sdk.requests.RequestActivity" />
+
+        <activity
+            android:name="com.zendesk.sdk.support.ViewArticleActivity"
+            android:configChanges="0x480" />
+
+        <receiver
+            android:name="com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.zendesk.sdk.deeplinking" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.zendesk.belvedere.BelvedereFileProvider"
+            android:exported="false"
+            android:authorities="com.myproject.belvedere.attachments"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@ref/0x7f120000" />
+        </provider>
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="25.4.0" />
+
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true">
+
+            <intent-filter
+                android:priority="-500">
+
+                <action
+                    android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:theme="@ref/0x01030010"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:permission="android.permission.INSTALL_PACKAGES"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category
+                    android:name="com.myproject" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true">
+
+            <intent-filter
+                android:priority="-500">
+
+                <action
+                    android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities="com.myproject.firebaseinitprovider"
+            android:initOrder="100" />
+
+        <service
+            android:name="com.appsee.AppseeBackgroundUploader" />
+    </application>
+</manifest>
